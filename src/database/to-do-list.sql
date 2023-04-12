@@ -1,4 +1,5 @@
 -- Active: 1681312369320@@127.0.0.1@3306
+
 CREATE TABLE
     users (
         id TEXT PRIMARY KEY UNIQUE NOT NULL,
@@ -67,3 +68,8 @@ SELECT * FROM users;
 SELECT * FROM tasks;
 
 SELECT * FROM users_tasks;
+
+SELECT *
+FROM tasks
+    LEFT JOIN users_tasks ON users_tasks.task_id = tasks.id
+    LEFT JOIN users ON users_tasks.user_id = users.id;
